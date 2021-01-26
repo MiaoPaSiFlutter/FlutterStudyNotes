@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'ChangeNotifierProvider使用/UserChangeNotifierProviderScreen.dart';
 import 'Provider使用/UserProviderScreen.dart';
 
 void main() {
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: UserProviderScreen(),
+      // home: UserProviderScreen(),
+      home: UserChangeNotifierProviderScreen(),
     );
   }
 }
