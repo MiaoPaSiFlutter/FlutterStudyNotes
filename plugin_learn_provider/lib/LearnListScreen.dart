@@ -5,6 +5,7 @@ import 'ChangeNotifierProvider使用/UserChangeNotifierProviderScreen.dart';
 import 'FutureProvider使用/UserFutureProviderScreen.dart';
 import 'Provider使用/UserProviderScreen.dart';
 import 'StreamProvider使用/UserStreamProviderScreen.dart';
+import 'ValueListenableProvider使用/UserValueListenableProviderScreen.dart';
 
 class LearnListScreen extends StatefulWidget {
   LearnListScreen({Key key}) : super(key: key);
@@ -21,6 +22,9 @@ class _LearnListScreenState extends State<LearnListScreen> {
         screen: UserChangeNotifierProviderScreen()),
     ItemStyle(title: "FutureProvider使用", screen: UserFutureProviderScreen()),
     ItemStyle(title: "StreamProvider使用", screen: UserStreamProviderScreen()),
+    ItemStyle(
+        title: "ValueListenableProvider使用",
+        screen: UserValueListenableProviderScreen()),
   ];
 
   @override
@@ -39,9 +43,7 @@ class _LearnListScreenState extends State<LearnListScreen> {
     return Container(
       width: double.infinity,
       height: 44,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey)
-      ),
+      decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
       child: InkWell(
         child: Center(child: Text("${items[index].title}")),
         onTap: () {
