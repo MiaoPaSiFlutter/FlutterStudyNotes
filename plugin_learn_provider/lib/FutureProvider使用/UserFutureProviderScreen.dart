@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class UserChangeNotifierProviderScreen extends StatefulWidget {
-  UserChangeNotifierProviderScreen({Key key}) : super(key: key);
-
-  @override
-  _UserChangeNotifierProviderScreenState createState() =>
-      _UserChangeNotifierProviderScreenState();
-}
-
-class _UserChangeNotifierProviderScreenState
-    extends State<UserChangeNotifierProviderScreen> {
+class UserFutureProviderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => MyModel(),
+    return FutureProvider(
+      initialData: MyModel(counter: 0),
+      create: (context) => someAsyncFunctionToGetMyModel(),
       child: Scaffold(
         appBar: AppBar(
           title: Text('provider'),
@@ -23,7 +15,7 @@ class _UserChangeNotifierProviderScreenState
           children: <Widget>[
             Builder(
               builder: (context) {
-                MyModel _model = Provider.of<MyModel>(context);
+                MyModel _model = Provider.of<MyModel>(context, listen: false);
                 return Container(
                     margin: const EdgeInsets.only(top: 20),
                     width: MediaQuery.of(context).size.width,
@@ -59,6 +51,12 @@ class _UserChangeNotifierProviderScreenState
         ),
       ),
     );
+  }
+
+  Future<MyModel> someAsyncFunctionToGetMyModel() async {
+    //  <--- async function
+    await Future.delayed(Duration(seconds: 3));
+    return MyModel(counter: 1);
   }
 }
 
