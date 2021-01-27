@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'ChangeNotifierProvider使用/UserChangeNotifierProviderScreen.dart';
 import 'FutureProvider使用/UserFutureProviderScreen.dart';
 import 'ListenableProvider使用/UserListenableProviderScreen.dart';
+import 'MultiProvider使用/UserMultiProviderScreen.dart';
 import 'Provider使用/UserProviderScreen.dart';
 import 'StreamProvider使用/UserStreamProviderScreen.dart';
 import 'ValueListenableProvider使用/UserValueListenableProviderScreen.dart';
@@ -28,6 +29,8 @@ class _LearnListScreenState extends State<LearnListScreen> {
         screen: UserValueListenableProviderScreen()),
     ItemStyle(
         title: "ListenableProvider使用", screen: UserListenableProviderScreen()),
+        ItemStyle(
+        title: "MultiProvider使用", screen: UserMultiProviderScreen()),
   ];
 
   @override
